@@ -55,36 +55,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    /*public void onClick(View v) {
-        String email = _email.getText().toString();
-        String pass = _password.getText().toString();
-
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(getApplicationContext(),"Please enter your E-mail address",Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(pass)){
-            Toast.makeText(getApplicationContext(),"Please enter your Password",Toast.LENGTH_LONG).show();
-        }
-        if (pass.length() == 0){
-            Toast.makeText(getApplicationContext(),"Please enter your Password",Toast.LENGTH_LONG).show();
-        }
-        if (pass.length()<8){
-            Toast.makeText(getApplicationContext(),"Password must be more than 8 digit",Toast.LENGTH_LONG).show();
-        }
-        else{
-            auth.createUserWithEmailAndPassword(email,pass)
-                    .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if (!task.isSuccessful()) {
-                                Toast.makeText(MainActivity.this, "ERROR",Toast.LENGTH_LONG).show();
-                            }
-                            else {
-                                startActivity(new Intent(MainActivity.this, ChatActivity.class));
-                                finish();
-                            }
-                        }
-                    });
-        }}*/
+   
 }
