@@ -3,6 +3,7 @@ package com.example.mychat.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,12 @@ import com.example.mychat.ChatActivity;
 import com.example.mychat.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -36,6 +41,7 @@ public class SignupTabFragment extends Fragment {
         cpass = (EditText) root.findViewById(R.id.confirmpass);
         auth = FirebaseAuth.getInstance();
         b = (Button) root.findViewById(R.id.button);
+
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,13 +68,32 @@ public class SignupTabFragment extends Fragment {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                                     if (!task.isSuccessful()) {
-                                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                                        try {
+                                            throw task.getException();
+                                        } catch(FirebaseAuthWeakPasswordException e) {
+                                            pass.setError("Weak Password");
+                                            pass.requestFocus();
+                                        } catch(FirebaseAuthInvalidCredentialsException e) {
+                                            email.setError("Invalid Email");
+                                            email.requestFocus();
+                                        } catch(FirebaseAuthUserCollisionException e) {
+                                            email.setError("User Already Exist");
+                                            email.requestFocus();
+                                        } catch(Exception e) {
+                                            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
+                                        }
                                     } else {
                                         startActivity(new Intent(getActivity(), ChatActivity.class));
                                         getActivity().finish();
                                     }
                                 }
                             });
+
+
+
+
+
+
 
                 }
 

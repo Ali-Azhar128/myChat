@@ -11,6 +11,7 @@ import com.example.mychat.R;
 
 public class loginTabFragment extends Fragment {
 
+
     @Override
     public View onCreateView(LayoutInflater inflator, ViewGroup container, Bundle savedInstanceState)
     {

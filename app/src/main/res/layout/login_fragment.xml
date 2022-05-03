@@ -33,6 +33,7 @@
         android:textColor="@color/black"
         android:layout_height="50dp"
         android:textSize="11dp"
+        android:inputType="textPassword"
         android:hint="Password"
         android:textColorHint="@android:color/darker_gray"
         android:drawableStart="@drawable/custom_lock_focused"

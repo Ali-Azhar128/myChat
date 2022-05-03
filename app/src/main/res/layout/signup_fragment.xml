@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -59,6 +60,9 @@
         android:textColor="@color/black"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:inputType="textPassword"
+
+
         android:textSize="11dp"
         android:textColorHint="@android:color/darker_gray"
         android:drawableStart="@drawable/custom_lock_focused"
@@ -82,6 +86,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:textSize="11dp"
+        android:inputType="textPassword"
         android:textColorHint="@android:color/darker_gray"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_lock_focused"
@@ -131,7 +136,6 @@
         app:layout_constraintStart_toStartOf="@+id/confirmpass"
         app:layout_constraintTop_toBottomOf="@+id/confirmpass"
         app:layout_constraintVertical_bias="0.0" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
