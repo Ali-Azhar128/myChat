@@ -1,4 +1,4 @@
-package com.example.mychat;
+package com.example.mychat.adapter;
 
 import android.content.Context;
 

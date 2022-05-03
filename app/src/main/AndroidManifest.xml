@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyChat">
         <activity
-            android:name=".ChatActivity"
+            android:name=".activities.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:windowSoftInputMode="adjustPan"
 
             android:exported="true"
