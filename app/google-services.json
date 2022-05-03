@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "972906824449",
+    "project_id": "userchat-6b24e",
+    "storage_bucket": "userchat-6b24e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972906824449:android:8ad2ac2dfa8c5bd4215100",
+        "android_client_info": {
+          "package_name": "com.example.mychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972906824449-ku7hde1r6d747n2g74f2mmerb3ltro7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnUY_QhaVXOcAyKBwG1Lkcx7p-ePx2kNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972906824449-ku7hde1r6d747n2g74f2mmerb3ltro7o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
