@@ -107,12 +107,12 @@
         app:layout_constraintWidth_percent="0.8" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/b1"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@drawable/button_bg"
         android:onClick="onClick"
-        android:text="Login"
+        android:text="CREATE!"
         android:textSize="16sp"
         android:textStyle="bold"
         app:backgroundTint="@null"
@@ -130,7 +130,7 @@
         android:layout_marginTop="12dp"
         android:text="Forgot Password"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/b1"
         app:layout_constraintEnd_toEndOf="@+id/confirmpass"
         app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="@+id/confirmpass"

@@ -38,7 +38,7 @@ public class SignupTabFragment extends Fragment {
         pass = (EditText) root.findViewById(R.id.pass);
         cpass = (EditText) root.findViewById(R.id.confirmpass);
         auth = FirebaseAuth.getInstance();
-        b = (Button) root.findViewById(R.id.button);
+        b = (Button) root.findViewById(R.id.b1);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
