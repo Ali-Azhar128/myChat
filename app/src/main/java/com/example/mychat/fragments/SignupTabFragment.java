@@ -59,6 +59,11 @@ public class SignupTabFragment extends Fragment {
                 if (pass.length() < 8) {
                     pass.setError("Enter a secure password");
                 }
+                if(!(pass.getText().toString().equals(cpass.getText().toString())))
+                {
+                    pass.setError("");
+                    cpass.setError("Password does not match");
+                }
                 else
                 {
                     auth.createUserWithEmailAndPassword(emailText, passText)
