@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         tablayout.addTab(tablayout.newTab().setText("Sign Up"));
         tablayout.setupWithViewPager(viewpager);
         tablayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        _phone = (EditText) findViewById(R.id.phone);
+
         _email = (EditText) findViewById(R.id.email);
         _password = (EditText) findViewById(R.id.pass);
         _cpass = (EditText) findViewById(R.id.confirmpass);

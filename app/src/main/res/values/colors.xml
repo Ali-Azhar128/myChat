@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#FFb75383</color>
     <color name="dark_pink">#FF412d4a</color>
+    <color name="custom_while">#f0f0ef</color>
 </resources>

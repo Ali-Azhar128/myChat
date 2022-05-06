@@ -1,7 +1,5 @@
 package com.example.mychat.fragments;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +8,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.mychat.R;
-import com.example.mychat.activities.ChatActivity;
-import com.example.mychat.activities.MainActivity;
+import com.example.mychat.activities.allusers;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class loginTabFragment extends Fragment {
     EditText _email, _pass;
@@ -67,7 +64,7 @@ public class loginTabFragment extends Fragment {
                                     }
                                 } else {
                                     bar.setVisibility(View.INVISIBLE);
-                                    startActivity(new Intent(getActivity(), ChatActivity.class));
+                                    startActivity(new Intent(getActivity(), allusers.class));
                                     getActivity().finish();
                                 }
                             }
@@ -79,8 +76,11 @@ public class loginTabFragment extends Fragment {
 
         return root;
     }
-    public void login(View v)
+    public void addDataToFirebase()
     {
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        HashMap<String, Object> data = new HashMap<>();
+
 
 
 
