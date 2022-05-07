@@ -67,6 +67,7 @@ public class SignupTabFragment extends Fragment {
         imageView = (ImageView) root.findViewById(R.id.layoutImage);
         tv2 = (TextView) root.findViewById(R.id.textAddImage);
         username = (EditText) root.findViewById(R.id.inputName);
+
         setListeners();
 
         b.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +76,12 @@ public class SignupTabFragment extends Fragment {
                 bar.setVisibility(View.VISIBLE);
                 String emailText = email.getText().toString();
                 String passText = pass.getText().toString();
+
+                if(imageView == null)
+                {
+                    bar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getActivity(), "Select an Image", Toast.LENGTH_SHORT).show();
+                }
 
                 if (TextUtils.isEmpty(emailText)) {
                     bar.setVisibility(View.INVISIBLE);
@@ -165,12 +172,14 @@ public class SignupTabFragment extends Fragment {
     }
     private void setListeners()
     {
+
         imageView.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             pickImage.launch(intent);
 
         });
+
 
     }
 
