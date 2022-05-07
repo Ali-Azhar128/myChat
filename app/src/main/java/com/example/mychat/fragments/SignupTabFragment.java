@@ -109,7 +109,8 @@ public class SignupTabFragment extends Fragment {
                 else
                 {
                     auth.createUserWithEmailAndPassword(emailText, passText)
-                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>()
+                            {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                                     if (!task.isSuccessful()) {
@@ -135,6 +136,7 @@ public class SignupTabFragment extends Fragment {
                                         user.put(Constants.KEY_EMAIL, email.getText().toString());
                                         user.put(Constants.KEY_PASSWORD, pass.getText().toString());
                                         user.put(Constants.KEY_IMAGE, encodedImage);
+                                        user.put("UID", FirebaseAuth.getInstance().getCurrentUser().getUid());
                                         firebaseFirestore.collection(Constants.KEY_COLLECTION_USER).
                                                 add(user).addOnSuccessListener(
                                                         documentReference -> {
@@ -153,13 +155,6 @@ public class SignupTabFragment extends Fragment {
                                     }
                                 }
                             });
-
-
-
-
-
-
-
                 }
 
             }

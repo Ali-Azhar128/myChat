@@ -2,6 +2,7 @@ package com.example.mychat.activities;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +11,7 @@ import com.example.mychat.constants.Constants;
 import com.example.mychat.databinding.ActivityUsersBinding;
 import com.example.mychat.models.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -40,12 +42,14 @@ public class UsersActivity extends AppCompatActivity {
 
     private void getUsers()
     {
+
+
         Loading(true);
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection(Constants.KEY_COLLECTION_USER)
                 .get().addOnCompleteListener(task -> {
                     Loading(false);
-                    String userId = FirebaseAuth.getInstance().getUid();
+                    String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     if(task.isSuccessful() && task.getResult() != null)
                     {
                         List<User> users = new ArrayList<>();
@@ -53,6 +57,7 @@ public class UsersActivity extends AppCompatActivity {
                         {
                             if(userId.equals(queryDocumentSnapshot.getId()))
                             {
+                                Toast.makeText(this, "Here", Toast.LENGTH_SHORT).show();
                                 continue;
 
                             }

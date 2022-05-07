@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_chat_input.xml" value="0.172" />
         <entry key="app/src/main/res/drawable/background_content_bottom.xml" value="0.1475" />
+        <entry key="app/src/main/res/drawable/background_content_top.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/background_image.xml" value="0.1475" />
+        <entry key="app/src/main/res/drawable/background_received_message.xml" value="0.172" />
+        <entry key="app/src/main/res/drawable/background_send_message.xml" value="0.172" />
+        <entry key="app/src/main/res/drawable/background_sent_message.xml" value="0.172" />
         <entry key="app/src/main/res/drawable/baseline_email.xml" value="0.1475" />
         <entry key="app/src/main/res/drawable/baseline_email_focused.xml" value="0.1475" />
         <entry key="app/src/main/res/drawable/button_bg.xml" value="0.1475" />
@@ -16,13 +21,16 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1475" />
         <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.1475" />
         <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.1475" />
+        <entry key="app/src/main/res/drawable/ic_send.xml" value="0.172" />
         <entry key="app/src/main/res/drawable/view_bg.xml" value="0.1475" />
         <entry key="app/src/main/res/layout/activity_allusers.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.19341952558876813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_uerss.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_users.xml" value="0.14114583333333333" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/item_container_received_message.xml" value="0.24365942028985507" />
+        <entry key="app/src/main/res/layout/item_container_sent_message.xml" value="0.24365942028985507" />
         <entry key="app/src/main/res/layout/item_container_user.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.16856143232704937" />
         <entry key="app/src/main/res/layout/signup_fragment.xml" value="0.19610507246376813" />
