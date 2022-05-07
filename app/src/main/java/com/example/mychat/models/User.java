@@ -2,9 +2,9 @@ package com.example.mychat.models;
 
 public class User {
 
-    private String name;
-    private String email;
-    private String profileImage;
+     public String name;
+     public String email;
+     public String profileImage;
     public User(){}
 
     public User( String name, String email, String profileImage) {
@@ -14,7 +14,9 @@ public class User {
         this.profileImage = profileImage;
     }
 
-
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getName() {
         return name;
