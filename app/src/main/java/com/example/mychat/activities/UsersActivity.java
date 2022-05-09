@@ -1,6 +1,8 @@
 package com.example.mychat.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Toast;
 
@@ -9,16 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.mychat.adapters.UserAdapter;
 import com.example.mychat.constants.Constants;
 import com.example.mychat.databinding.ActivityUsersBinding;
+import com.example.mychat.listeners.UserListener;
 import com.example.mychat.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersActivity extends AppCompatActivity {
+public class UsersActivity extends AppCompatActivity implements UserListener {
     ActivityUsersBinding binding;
 
     @Override
@@ -44,6 +48,9 @@ public class UsersActivity extends AppCompatActivity {
     {
 
 
+
+
+
         Loading(true);
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection(Constants.KEY_COLLECTION_USER)
@@ -55,7 +62,8 @@ public class UsersActivity extends AppCompatActivity {
                         List<User> users = new ArrayList<>();
                         for(QueryDocumentSnapshot queryDocumentSnapshot: task.getResult())
                         {
-                            if(userId.equals(queryDocumentSnapshot.getId()))
+
+                            if(userId.equals(queryDocumentSnapshot.getString("UID")))
                             {
                                 Toast.makeText(this, "Here", Toast.LENGTH_SHORT).show();
                                 continue;
@@ -69,7 +77,7 @@ public class UsersActivity extends AppCompatActivity {
                         }
                         if(users.size() > 0)
                         {
-                            UserAdapter userAdapter = new UserAdapter(users);
+                            UserAdapter userAdapter = new UserAdapter(users, this);
                             binding.usersRecyclerView.setAdapter(userAdapter);
                             binding.usersRecyclerView.setVisibility(View.VISIBLE);
                         }
@@ -100,5 +108,13 @@ public class UsersActivity extends AppCompatActivity {
         {
             binding.progressBar.setVisibility(View.INVISIBLE);
         }
+    }
+
+    @Override
+    public void onUserClicked(User user) {
+        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+        intent.putExtra(Constants.KEY_USER, user);
+        startActivity(intent);
+        finish();
     }
 }
