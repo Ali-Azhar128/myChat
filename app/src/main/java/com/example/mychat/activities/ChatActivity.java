@@ -25,6 +25,7 @@ public class ChatActivity extends AppCompatActivity {
     {
         receiverUser = (User) getIntent().getSerializableExtra(Constants.KEY_USER);
         binding.textName.setText(receiverUser.name);
+
     }
     private void setListeners()
     {
