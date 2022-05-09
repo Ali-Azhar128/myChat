@@ -7,6 +7,7 @@ public class User implements Serializable {
      public String name;
      public String email;
      public String profileImage;
+     public String id;
     public User(){}
 
     public User( String name, String email, String profileImage) {

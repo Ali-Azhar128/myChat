@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
     android:padding="4dp"
     >
 
@@ -12,9 +13,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/background_sent_message"
-        android:padding="12dp"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="8dp"
         android:textColor="@color/white"
         android:textSize="13dp"
+        app:layout_constraintWidth_max="wrap"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,7 +30,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="#656565"
-        android:textSize="10sp"
+        android:textSize="8sp"
         android:layout_marginTop="4dp"
 
 

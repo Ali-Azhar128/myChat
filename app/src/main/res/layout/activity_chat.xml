@@ -87,6 +87,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="12dp"
+        android:background="@color/dark_pink"
         app:layout_constraintTop_toBottomOf="@id/imageback"
         />
 
@@ -100,6 +101,7 @@
         android:overScrollMode="never"
         android:padding="20dp"
         android:visibility="gone"
+        app:stackFromEnd="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="@id/viewBackground"
         app:layout_constraintTop_toBottomOf="@id/viewsupporter"
@@ -111,7 +113,7 @@
         android:id="@+id/progressBar"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:visibility="gone"
+
 
 
         app:layout_constraintBottom_toBottomOf="@+id/viewBackground"
@@ -157,11 +159,12 @@
         android:background="@drawable/background_send_message"
         android:hint="Type a message"
         android:imeOptions="actionDone"
+        android:textColorHint="#7C7C7C"
         android:importantForAutofill="no"
         android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textColor="#7A7A7A"
+        android:textColor="#292929"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/layoutSend"
         app:layout_constraintStart_toStartOf="parent" />
