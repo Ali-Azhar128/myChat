@@ -11,15 +11,22 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.mychat.R;
+import com.example.mychat.adapters.RecentConversationAdapter;
 import com.example.mychat.constants.Constants;
 import com.example.mychat.databinding.ActivityAllusersBinding;
+import com.example.mychat.models.ChatMessage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class allusers extends AppCompatActivity {
     ActivityAllusersBinding binding;
     FirebaseFirestore firebaseFirestore;
+    private List<ChatMessage> conversations;
+    private RecentConversationAdapter conversationAdapter;
 
 
     @Override
@@ -27,12 +34,21 @@ public class allusers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAllusersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        init();
         firebaseFirestore = FirebaseFirestore.getInstance();
         binding.progressBar.setVisibility(View.VISIBLE);
 
         setListeners();
 
 
+    }
+
+
+    private void init(){
+        conversations = new ArrayList<>();
+        conversationAdapter = new RecentConversationAdapter(conversations);
+        binding.conversationRecyclerView.setAdapter(conversationAdapter);
+        firebaseFirestore = FirebaseFirestore.getInstance();
     }
     public void setListeners()
     {

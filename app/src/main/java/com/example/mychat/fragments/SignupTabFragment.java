@@ -2,7 +2,9 @@ package com.example.mychat.fragments;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -51,22 +53,30 @@ public class SignupTabFragment extends Fragment {
     ProgressBar bar;
     ImageView imageView;
     String encodedImage;
+    SharedPreferences preferences;
 
 
     @Override
     public View onCreateView(LayoutInflater inflator, ViewGroup container, Bundle savedInstanceState)
     {
         root = (ViewGroup) inflator.inflate(R.layout.signup_fragment, container, false);
+
+
+
+
         email = (EditText) root.findViewById(R.id.signupemail);
         pass = (EditText) root.findViewById(R.id.pass);
         cpass = (EditText) root.findViewById(R.id.confirmpass);
+        username = (EditText) root.findViewById(R.id.inputName);
+
+
         auth = FirebaseAuth.getInstance();
         b = (Button) root.findViewById(R.id.b1);
         bar = (ProgressBar) root.findViewById(R.id.progbar2);
         bar.setVisibility(View.INVISIBLE);
         imageView = (ImageView) root.findViewById(R.id.layoutImage);
         tv2 = (TextView) root.findViewById(R.id.textAddImage);
-        username = (EditText) root.findViewById(R.id.inputName);
+
 
         setListeners();
 
@@ -74,6 +84,7 @@ public class SignupTabFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 bar.setVisibility(View.VISIBLE);
+
                 String emailText = email.getText().toString();
                 String passText = pass.getText().toString();
 
@@ -130,6 +141,7 @@ public class SignupTabFragment extends Fragment {
                                             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
+
                                         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
                                         HashMap<String, Object> user = new HashMap<>();
                                         user.put(Constants.KEY_NAME,username.getText().toString());

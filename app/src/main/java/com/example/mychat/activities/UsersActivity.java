@@ -65,7 +65,7 @@ public class UsersActivity extends AppCompatActivity implements UserListener {
 
                             if(userId.equals(queryDocumentSnapshot.getString("UID")))
                             {
-                                Toast.makeText(this, "Here", Toast.LENGTH_SHORT).show();
+
                                 continue;
 
                             }
@@ -73,7 +73,7 @@ public class UsersActivity extends AppCompatActivity implements UserListener {
                             user.name = queryDocumentSnapshot.getString(Constants.KEY_NAME);
                             user.email = queryDocumentSnapshot.getString(Constants.KEY_EMAIL);
                             user.profileImage = queryDocumentSnapshot.getString(Constants.KEY_IMAGE);
-                            user.id = queryDocumentSnapshot.getId();
+                            user.id = queryDocumentSnapshot.getString("UID");
                             users.add(user);
                         }
                         if(users.size() > 0)

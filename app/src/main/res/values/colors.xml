@@ -10,4 +10,5 @@
     <color name="pink">#FFb75383</color>
     <color name="dark_pink">#FF412d4a</color>
     <color name="custom_white">#f0f0ef</color>
+    <color name="button_color">#713652</color>
 </resources>
