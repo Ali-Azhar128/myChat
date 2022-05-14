@@ -16,7 +16,9 @@ import com.example.mychat.R;
 import com.example.mychat.adapters.RecentConversationAdapter;
 import com.example.mychat.constants.Constants;
 import com.example.mychat.databinding.ActivityAllusersBinding;
+import com.example.mychat.listeners.ConversationListener;
 import com.example.mychat.models.ChatMessage;
+import com.example.mychat.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -28,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class allusers extends AppCompatActivity {
+public class allusers extends AppCompatActivity implements ConversationListener {
     ActivityAllusersBinding binding;
     FirebaseFirestore firebaseFirestore;
     private List<ChatMessage> conversations;
@@ -56,7 +58,7 @@ public class allusers extends AppCompatActivity {
 
     private void init(){
         conversations = new ArrayList<>();
-        conversationAdapter = new RecentConversationAdapter(conversations);
+        conversationAdapter = new RecentConversationAdapter(conversations, this);
         binding.conversationRecyclerView.setAdapter(conversationAdapter);
         firebaseFirestore = FirebaseFirestore.getInstance();
     }
@@ -154,6 +156,14 @@ public class allusers extends AppCompatActivity {
         firebaseAuth.signOut();
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
+
+    }
+
+    @Override          /* This built-in method allows us to move the the selected user's chat screen */
+    public void onConversationClicked(User user) {
+        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+        intent.putExtra(Constants.KEY_USER, user);
+        startActivity(intent);
 
     }
 }

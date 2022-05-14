@@ -10,15 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mychat.databinding.ItemContainerRecentConversationBinding;
+import com.example.mychat.listeners.ConversationListener;
 import com.example.mychat.models.ChatMessage;
+import com.example.mychat.models.User;
 
 import java.util.List;
 
 public class RecentConversationAdapter extends RecyclerView.Adapter<RecentConversationAdapter.ConversationViewHolder> {
 
     private final List<ChatMessage> chatMessages;
+    private final ConversationListener conversationListener;
 
-    public RecentConversationAdapter(List<ChatMessage> chatMessages) {
+    public RecentConversationAdapter(List<ChatMessage> chatMessages, ConversationListener conversationListener) {
+        this.conversationListener = conversationListener;     /*When we click on a specific conversation,
+                                                                Activity changes to the clicked user chat*/
         this.chatMessages = chatMessages;
     }
 
@@ -55,6 +60,13 @@ public class RecentConversationAdapter extends RecyclerView.Adapter<RecentConver
             binding.layoutImage.setImageBitmap(getConversationImage(chatMessage.conversationImage));
             binding.textName.setText(chatMessage.conversationName);
             binding.textRecentMessage.setText(chatMessage.message);
+            binding.getRoot().setOnClickListener(v -> {
+                User user = new User();
+                user.id = chatMessage.conversationId;
+                user.name = chatMessage.conversationName;
+                user.profileImage = chatMessage.conversationImage;
+                conversationListener.onConversationClicked(user);
+            });
         }
     }
     private Bitmap getConversationImage(String encodedImage)
