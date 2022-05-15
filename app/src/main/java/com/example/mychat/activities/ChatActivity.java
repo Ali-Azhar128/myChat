@@ -60,7 +60,7 @@ public class ChatActivity extends AppCompatActivity {
         message.put(Constants.KEY_MESSAGE, binding.inputMessage.getText().toString());
         message.put(Constants.KEY_TIMESTAMP, new Date());
         database.collection(Constants.KEY_COLLECTION_CHAT).add(message);
-        if(conversationId != null)
+        if(conversationId != null) //when we add a conversation it will also assign a conversation ID to this variable
         {
             updateConversation(binding.inputMessage.getText().toString());
         }else {
@@ -91,7 +91,7 @@ public class ChatActivity extends AppCompatActivity {
     private void listenMessages(){
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         database.collection(Constants.KEY_COLLECTION_CHAT).whereEqualTo(Constants.KEY_SENDER_ID, userId)
-                .whereEqualTo(Constants.KEY_RECEIVER_ID, receiverUser.id)
+                .whereEqualTo(Constants.KEY_RECEIVER_ID, receiverUser.id) //Getting receiverUser through intent
                 .addSnapshotListener(eventListener);
         database.collection(Constants.KEY_COLLECTION_CHAT)
                 .whereEqualTo(Constants.KEY_SENDER_ID, receiverUser.id)
@@ -201,6 +201,7 @@ public class ChatActivity extends AppCompatActivity {
         {
             DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
             conversationId = documentSnapshot.getId();
+
         }
     };
 }

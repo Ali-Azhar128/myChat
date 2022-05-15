@@ -7,7 +7,7 @@ public class Constants {
     public static final String KEY_PASSWORD = "password";
     public static final String KEY_PREFERENCE_NAME = "myChatPreference";
     public static final String KEY_IS_SIGNED_IN = "isSignedIn";
-    public static final String KEY_USER_ID = "usedId";
+    public static final String KEY_USER_ID = "userId";
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "user";
     public static final String KEY_COLLECTION_CHAT = "chat";
@@ -21,6 +21,7 @@ public class Constants {
     public static final String KEY_SENDER_IMAGE = "senderImage";
     public static final String KEY_RECEIVER_IMAGE = "receiverImage";
     public static final String KEY_LAST_MESSAGE = "lastMessage";
+    public static final String KEY_AVAILABILITY = "availability";
 
 
 

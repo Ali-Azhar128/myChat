@@ -70,6 +70,7 @@ public class SignupTabFragment extends Fragment {
         username = (EditText) root.findViewById(R.id.inputName);
 
 
+
         auth = FirebaseAuth.getInstance();
         b = (Button) root.findViewById(R.id.b1);
         bar = (ProgressBar) root.findViewById(R.id.progbar2);
@@ -149,9 +150,11 @@ public class SignupTabFragment extends Fragment {
                                         user.put(Constants.KEY_PASSWORD, pass.getText().toString());
                                         user.put(Constants.KEY_IMAGE, encodedImage);
                                         user.put("UID", FirebaseAuth.getInstance().getCurrentUser().getUid());
+
                                         firebaseFirestore.collection(Constants.KEY_COLLECTION_USER).
                                                 add(user).addOnSuccessListener(
                                                         documentReference -> {
+
 
                                                         }).addOnFailureListener(exception ->
 

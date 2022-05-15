@@ -66,6 +66,7 @@ public class loginTabFragment extends Fragment {
                             && task.getResult().getDocuments().size() > 0)
                             {
                                 DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
+
                                 editor.putString(Constants.KEY_IMAGE, documentSnapshot.getString(Constants.KEY_IMAGE));
                                 editor.putString(Constants.KEY_NAME, documentSnapshot.getString(Constants.KEY_NAME));
                                 editor.apply();
