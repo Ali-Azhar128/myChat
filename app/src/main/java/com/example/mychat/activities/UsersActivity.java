@@ -63,6 +63,7 @@ public class UsersActivity extends AppCompatActivity implements UserListener {
                         for(QueryDocumentSnapshot queryDocumentSnapshot: task.getResult())
                         {
 
+
                             if(userId.equals(queryDocumentSnapshot.getString("UID")))
                             {
 

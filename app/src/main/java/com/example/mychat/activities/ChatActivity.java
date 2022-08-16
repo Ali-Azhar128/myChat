@@ -193,6 +193,7 @@ public class ChatActivity extends AppCompatActivity {
                 .whereEqualTo(Constants.KEY_RECEIVER_ID, receiverId)
                 .get()
                 .addOnCompleteListener(conversationOnCompleteListener);
+
     }
 
     private final OnCompleteListener<QuerySnapshot> conversationOnCompleteListener = task ->

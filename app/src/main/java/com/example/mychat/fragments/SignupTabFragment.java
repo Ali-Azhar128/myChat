@@ -115,7 +115,7 @@ public class SignupTabFragment extends Fragment {
                 if(!(pass.getText().toString().equals(cpass.getText().toString())))
                 {
                     bar.setVisibility(View.INVISIBLE);
-                    pass.setError("");
+                    pass. setError("");
                     cpass.setError("Password does not match");
                 }
                 else

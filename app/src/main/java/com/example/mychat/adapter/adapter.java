@@ -54,3 +54,4 @@ public class adapter extends FragmentPagerAdapter {
 
 
 }
+
